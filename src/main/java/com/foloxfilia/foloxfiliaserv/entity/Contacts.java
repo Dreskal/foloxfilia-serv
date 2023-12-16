@@ -12,8 +12,10 @@ import java.time.LocalDateTime;
 @Entity
 public class Contacts {
     @Id
-    @OneToOne
-    @JoinColumn(name = "users_id", referencedColumnName = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne(mappedBy = "contacts")
     private Users user;
 
     @Column(length = 16)
@@ -25,4 +27,10 @@ public class Contacts {
     private String bio;
     @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss" )
     private LocalDateTime birthDate;
+
+    public Contacts(String name, String email, boolean licence) {
+        this.name = name;
+        this.email = email;
+        this.licence = licence;
+    }
 }

@@ -2,12 +2,15 @@ package com.foloxfilia.foloxfiliaserv.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -27,16 +30,41 @@ public class JwtService {
 
     }
 
-    public String generateToken (Map<String, Object> exstraClaim, UserDetails details){
-        return null;
+    public String generateToken(UserDetails details){
+        return generateToken(new HashMap<>(), details);
     }
-    private Claims extractAllClaims(String jwt){
+
+    public String generateToken (Map<String, Object> exstraClaim, UserDetails details){
+        return Jwts
+                .builder()
+                .setClaims(exstraClaim)
+                .setSubject(details.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis()+1000*60*24))
+                .signWith(getSingingKey(), SignatureAlgorithm.HS256)
+                .compact();  //добавить еще *60
+    }
+    public  boolean isTokenValide(String token, UserDetails details){
+
+        final String userName = extractUsername(token);
+        return (userName.equals(details.getUsername())) && (!isTokenExpired(token));
+
+    }
+
+    private boolean isTokenExpired(String token) {
+        return  extractExpirition(token).before(new Date());
+    }
+
+    private Date extractExpirition(String token){
+        return extractClaim(token, Claims::getExpiration);
+    }
+    private Claims extractAllClaims(String token){
 
         return Jwts
                 .parserBuilder()
                 .setSigningKey(getSingingKey())
                 .build()
-                .parseClaimsJwt(jwt)
+                .parseClaimsJws(token)
                 .getBody();
     }
     private Key getSingingKey(){
