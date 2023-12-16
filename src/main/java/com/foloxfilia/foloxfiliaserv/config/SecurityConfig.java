@@ -1,13 +1,9 @@
 package com.foloxfilia.foloxfiliaserv.config;
 
 import com.foloxfilia.foloxfiliaserv.security.JwtAuthenticationFilter;
-import jakarta.security.auth.message.config.AuthConfig;
-import jakarta.security.auth.message.config.AuthConfigProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

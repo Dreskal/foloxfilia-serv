@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
-
 public class UserDetailsSecurity implements UserDetails {
 
     private final Users user;
