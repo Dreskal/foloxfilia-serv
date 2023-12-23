@@ -1,8 +1,8 @@
 package com.foloxfilia.foloxfiliaserv.entity.enums;
 
 public enum EState {
-    NOTVIEW,
-    ACCESED,
-    NOTACCESED
+    NOT_VIEW,
+    ACCESSED,
+    NOT_ACCESSED
 
 }

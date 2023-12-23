@@ -1,4 +1,4 @@
-package com.foloxfilia.foloxfiliaserv.Service;
+package com.foloxfilia.foloxfiliaserv.service;
 
 import com.foloxfilia.foloxfiliaserv.DTO.request.AuthRequest;
 import com.foloxfilia.foloxfiliaserv.DTO.request.RegisterRequest;

@@ -1,4 +1,4 @@
-package com.foloxfilia.foloxfiliaserv.Service;
+package com.foloxfilia.foloxfiliaserv.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

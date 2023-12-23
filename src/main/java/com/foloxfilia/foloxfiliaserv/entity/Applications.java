@@ -29,7 +29,6 @@ public class Applications {
     private LocalDateTime createDate;
 
     @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss" )
-    @Column(updatable = false )
     private LocalDateTime dueDate;
 
     @Enumerated(EnumType.STRING)

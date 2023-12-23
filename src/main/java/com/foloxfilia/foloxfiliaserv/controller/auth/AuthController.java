@@ -3,7 +3,7 @@ package com.foloxfilia.foloxfiliaserv.controller.auth;
 import com.foloxfilia.foloxfiliaserv.DTO.request.AuthRequest;
 import com.foloxfilia.foloxfiliaserv.DTO.request.RegisterRequest;
 import com.foloxfilia.foloxfiliaserv.DTO.responce.AuthResponce;
-import com.foloxfilia.foloxfiliaserv.Service.AuthService;
+import com.foloxfilia.foloxfiliaserv.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
