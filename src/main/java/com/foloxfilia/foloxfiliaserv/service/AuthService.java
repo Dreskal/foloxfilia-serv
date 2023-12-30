@@ -45,7 +45,7 @@ public class AuthService {
                         )
 
                 )
-                .role(Collections.singleton(ERole.USER))
+                .role(Collections.singletonList(ERole.USER))
                 .build();
         userRepository.save(user);
 

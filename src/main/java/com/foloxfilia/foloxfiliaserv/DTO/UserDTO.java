@@ -5,14 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
+
 
 @Builder
 @Data
 public class UserDTO {
+
     private Long id;
     private String username;
     private LocalDateTime createDate;
-    private Set<ERole> role;
+    private List<ERole> role;
 
 }

@@ -26,6 +26,7 @@ public class ApplicationService {
                 .createDate(LocalDateTime.now())
                 .dueDate(LocalDateTime.now().plusDays(7))  // в propertiers
                 .state(EState.NOT_VIEW)
+                .user(user)
                 .build();
 
         return applicationReposiroty.save(applications);

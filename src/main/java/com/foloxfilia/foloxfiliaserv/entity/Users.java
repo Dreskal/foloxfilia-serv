@@ -27,10 +27,10 @@ public class Users {
     @Column(updatable = false )
     private LocalDateTime createDate;
 
-    @ElementCollection(targetClass = ERole.class)
+    @ElementCollection(targetClass = ERole.class, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
     joinColumns = @JoinColumn(name = "user_id"))
-    private Set<ERole> role;
+    private List<ERole> role;
 
     @OneToOne
     @JoinColumn(name = "contacts_id", referencedColumnName = "id")

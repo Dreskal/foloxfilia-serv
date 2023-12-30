@@ -19,6 +19,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("api/v1/applications")
 public class ApplicationController {
+
     private final ApplicationService applicationService;
     private final ModelMapper modelMapper;
     @PostMapping
